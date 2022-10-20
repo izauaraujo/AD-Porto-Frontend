@@ -304,7 +304,25 @@ class _PageCadastroState extends State<PageCadastro> {
     member.churchName = _congregationNamecontroller.text;
     member.name = _memberNamecontroller.text;
     member.father = _fatherMemberNamecontroller.text;
-
+    member.mother = _motherMemberNamecontroller.text;
+    member.rg = _RGcontroller.text;
+    member.cpf = _CPFcontroller.text;
+    member.birthday = _datebirthcontroller.text;
+    member.nationatily = _nationalitycontroller.text;
+    member.stateBirth = _stateBirthcontroller.text;
+    member.cityBirth = _cityBirthcontroller.text;
+    member.streetAvenue = _streetAvenuecontroller.text;
+    member.number = _numbercontroller.text;
+    member.district = _districtcontroller.text;
+    member.city = _citycontroller.text;
+    member.maritalStatus = _maritalStatuscontroller.text;
+    member.spouse = _spousecontroller.text;
+    member.churchCityBaptism = _churchBaptismcontroller.text;
+    member.cityBaptism = _cityBaptismcontroller.text;
+    member.dateBaptism = _dateBaptismcontroller.text;
+    member.origination = _originationcontroller.text;
+    member.admissionDate = _admissionDatecontroller.text;
+    member.note = _notecontroller.text;
     _memberNamecontroller.clear();
     print(member);
   }

@@ -28,4 +28,34 @@ class Member {
   String? cityBaptism;
   String? origination;
   String? note;
+
+  Map toJson() => {
+        'name': name,
+        'mother': mother,
+        'father': father,
+        'birthday': birthday,
+        'nationatily': birthday,
+        'naturality': naturality,
+        'stateBirth': stateBirth,
+        'maritalStatus': maritalStatus,
+        'profession': profession,
+        'admissionDate': profession,
+        'rg': rg,
+        'cpf': cpf,
+        'address': address,
+        'addressNumber': addressNumber,
+        'spouse': spouse,
+        'dateBaptism': dateBaptism,
+        'churchCityBaptism': churchCityBaptism,
+        'churchName': churchName,
+        'dateChurchBaptism': dateChurchBaptism,
+        'cityBirth': cityBirth,
+        'streetAvenue': streetAvenue,
+        'number': number,
+        'district': district,
+        'city': district,
+        'cityBaptism': cityBaptism,
+        'origination': origination,
+        'note': note,
+      };
 }

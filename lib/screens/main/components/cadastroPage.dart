@@ -1,8 +1,13 @@
+import 'dart:convert';
+import 'dart:math';
+
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../../../models/Member.dart';
+
+import 'package:http/http.dart' as http;
 
 class PageCadastro extends StatefulWidget {
   const PageCadastro({Key? key}) : super(key: key);
@@ -267,7 +272,7 @@ class _PageCadastroState extends State<PageCadastro> {
                           primary: Colors.green, onPrimary: Colors.black),
                       onPressed: () {
                         setState(() {
-                          cadastrar();
+                          cadastrar(Member);
                         });
                       },
                       child: const Text(
@@ -299,7 +304,7 @@ class _PageCadastroState extends State<PageCadastro> {
     ));
   }
 
-  cadastrar() {
+  Future<Member> cadastrar(member) async {
     final member = new Member();
     member.churchName = _congregationNamecontroller.text;
     member.name = _memberNamecontroller.text;
@@ -324,7 +329,27 @@ class _PageCadastroState extends State<PageCadastro> {
     member.admissionDate = _admissionDatecontroller.text;
     member.note = _notecontroller.text;
     _memberNamecontroller.clear();
-    print(member);
+
+    String jsonMember = jsonEncode(member);
+    print(jsonMember);
+
+    final response = await http.post(
+        Uri.parse('https://jsonplaceholder.typicode.com/albums'),
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: {
+          jsonMember
+        });
+
+    if (response.statusCode != 200) {
+      // If the server did return a 201 CREATED response,
+      // then parse the JSON.
+      throw Exception('Failed to create member');
+    } else {
+      throw Exception(e);
+      print(response);
+    }
   }
 
   sair() {}

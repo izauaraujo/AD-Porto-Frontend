@@ -7,7 +7,7 @@ class Member {
   String? birthday;
   String? nationatily;
   String? naturality;
-  String? state;
+  String? stateBirth;
   String? maritalStatus;
   String? profession;
   String? admissionDate;
@@ -20,4 +20,12 @@ class Member {
   String? churchCityBaptism;
   String? churchName;
   String? dateChurchBaptism;
+  String? cityBirth;
+  String? streetAvenue;
+  String? number;
+  String? district;
+  String? city;
+  String? cityBaptism;
+  String? origination;
+  String? note;
 }

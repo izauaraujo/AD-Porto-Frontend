@@ -272,7 +272,7 @@ class _PageCadastroState extends State<PageCadastro> {
                           primary: Colors.green, onPrimary: Colors.black),
                       onPressed: () {
                         setState(() {
-                          cadastrar(Member);
+                          cadastrar();
                         });
                       },
                       child: const Text(
@@ -304,7 +304,7 @@ class _PageCadastroState extends State<PageCadastro> {
     ));
   }
 
-  Future<Member> cadastrar(member) async {
+  cadastrar() {
     final member = new Member();
     member.churchName = _congregationNamecontroller.text;
     member.name = _memberNamecontroller.text;
@@ -332,25 +332,9 @@ class _PageCadastroState extends State<PageCadastro> {
 
     String jsonMember = jsonEncode(member);
     print(jsonMember);
-
-    final response = await http.post(
-        Uri.parse('https://jsonplaceholder.typicode.com/albums'),
-        headers: <String, String>{
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
-        body: {
-          jsonMember
-        });
-
-    if (response.statusCode != 200) {
-      // If the server did return a 201 CREATED response,
-      // then parse the JSON.
-      throw Exception('Failed to create member');
-    } else {
-      throw Exception(e);
-      print(response);
-    }
   }
 
-  sair() {}
+  sair() {
+    Navigator.pop(context);
+  }
 }

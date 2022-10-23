@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +6,7 @@ import 'package:flutter/services.dart';
 
 import '../../../models/Member.dart';
 
-import 'package:http/http.dart' as http;
+String? jsonMember;
 
 class PageCadastro extends StatefulWidget {
   const PageCadastro({Key? key}) : super(key: key);
@@ -330,8 +329,7 @@ class _PageCadastroState extends State<PageCadastro> {
     member.note = _notecontroller.text;
     _memberNamecontroller.clear();
 
-    String jsonMember = jsonEncode(member);
-    print(jsonMember);
+    jsonMember = jsonEncode(member);
   }
 
   sair() {

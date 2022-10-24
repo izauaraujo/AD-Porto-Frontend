@@ -4,6 +4,7 @@ import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../../../controllers/repository/repositoryMember.dart';
 import '../../../models/Member.dart';
 
 String? jsonMember;
@@ -271,7 +272,7 @@ class _PageCadastroState extends State<PageCadastro> {
                           primary: Colors.green, onPrimary: Colors.black),
                       onPressed: () {
                         setState(() {
-                          cadastrar();
+                          saveMember();
                         });
                       },
                       child: const Text(
@@ -303,7 +304,7 @@ class _PageCadastroState extends State<PageCadastro> {
     ));
   }
 
-  cadastrar() {
+  saveMember() {
     final member = new Member();
     member.churchName = _congregationNamecontroller.text;
     member.name = _memberNamecontroller.text;
@@ -327,9 +328,12 @@ class _PageCadastroState extends State<PageCadastro> {
     member.origination = _originationcontroller.text;
     member.admissionDate = _admissionDatecontroller.text;
     member.note = _notecontroller.text;
+    _congregationNamecontroller.clear();
     _memberNamecontroller.clear();
+    _fatherMemberNamecontroller.clear();
 
     jsonMember = jsonEncode(member);
+    RepositoryMember.postMember();
   }
 
   sair() {

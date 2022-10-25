@@ -1,125 +1,114 @@
 import 'dart:core';
 
 class Member {
-  String? name;
-  String? mother;
-  String? father;
-  String? birthday;
+  String? situation;
+  String? memberRegistrationNumber;
+  String? congregationName;
+  String? memberName;
+  String? fatherName;
+  String? motherName;
+  String? dateBirth;
   String? nationatily;
-  String? naturality;
-  String? stateBirth;
+  String? cityBirth;
+  String? districtBirth;
   String? maritalStatus;
-  String? profession;
+  String? dateBaptism;
+  String? churchBaptism;
+  String? cityBaptism;
   String? admissionDate;
-  String? rg;
-  String? cpf;
+  String? CPF;
+  String? RG;
+  String? spouse;
+  String? origination;
   String? address;
   String? addressNumber;
-  String? spouse;
-  String? dateBaptism;
-  String? churchCityBaptism;
-  String? churchName;
-  String? dateChurchBaptism;
-  String? cityBirth;
-  String? streetAvenue;
-  String? number;
   String? district;
   String? city;
-  String? cityBaptism;
-  String? origination;
   String? note;
 
   Member(
-      {this.name,
-      this.mother,
-      this.father,
-      this.birthday,
+      {this.situation,
+      this.memberRegistrationNumber,
+      this.congregationName,
+      this.memberName,
+      this.fatherName,
+      this.motherName,
+      this.dateBirth,
       this.nationatily,
-      this.naturality,
-      this.stateBirth,
+      this.cityBirth,
+      this.districtBirth,
       this.maritalStatus,
-      this.profession,
+      this.dateBaptism,
+      this.churchBaptism,
+      this.cityBaptism,
       this.admissionDate,
-      this.rg,
-      this.cpf,
+      this.CPF,
+      this.RG,
+      this.spouse,
+      this.origination,
       this.address,
       this.addressNumber,
-      this.spouse,
-      this.dateBaptism,
-      this.churchCityBaptism,
-      this.churchName,
-      this.dateChurchBaptism,
-      this.cityBirth,
-      this.streetAvenue,
-      this.number,
       this.district,
       this.city,
-      this.cityBaptism,
-      this.origination,
       this.note});
 
   Member.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    mother = json['mother'];
-    father = json['father'];
-    birthday = json['birthday'];
+    situation = json['situation'];
+    memberRegistrationNumber = json['memberRegistrationNumber'];
+    congregationName = json['congregationName'];
+    memberName = json['memberName'];
+    fatherName = json['fatherName'];
+    motherName = json['motherName'];
+    dateBirth = json['dateBirth'];
     nationatily = json['nationatily'];
-    naturality = json['naturality'];
-    stateBirth = json['stateBirth'];
+    cityBirth = json['cityBirth'];
+    districtBirth = json['districtBirth'];
     maritalStatus = json['maritalStatus'];
-    profession = json['profession'];
+    dateBaptism = json['DateBaptism'];
+    churchBaptism = json['churchBaptism'];
+    cityBaptism = json['cityBaptism'];
     admissionDate = json['admissionDate'];
-    rg = json['rg'];
-    cpf = json['cpf'];
+    CPF = json['CPF'];
+    RG = json['RG'];
+    spouse = json['spouse'];
+    origination = json['origination'];
     address = json['address'];
     addressNumber = json['addressNumber'];
-    spouse = json['spouse'];
-    dateBaptism = json['dateBaptism'];
-    churchCityBaptism = json['churchCityBaptism'];
-    churchName = json['churchName'];
-    dateChurchBaptism = json['dateChurchBaptism'];
-    cityBirth = json['cityBirth'];
-    streetAvenue = json['streetAvenue'];
-    number = json['number'];
     district = json['district'];
     city = json['city'];
-    cityBaptism = json['cityBaptism'];
-    origination = json['origination'];
     note = json['note'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['mother'] = this.mother;
-    data['father'] = this.father;
-    data['birthday'] = this.birthday;
+    data['situation'] = this.situation;
+    data['memberRegistrationNumber'] = this.memberRegistrationNumber;
+    data['congregationName'] = this.congregationName;
+    data['memberName'] = this.memberName;
+    data['fatherName'] = this.fatherName;
+    data['motherName'] = this.motherName;
+    data['dateBirth'] = this.dateBirth;
     data['nationatily'] = this.nationatily;
-    data['naturality'] = this.naturality;
-    data['stateBirth'] = this.stateBirth;
+    data['cityBirth'] = this.cityBirth;
+    data['districtBirth'] = this.districtBirth;
     data['maritalStatus'] = this.maritalStatus;
-    data['profession'] = this.profession;
+    data['DateBaptism'] = this.dateBaptism;
+    data['churchBaptism'] = this.churchBaptism;
+    data['cityBaptism'] = this.cityBaptism;
     data['admissionDate'] = this.admissionDate;
-    data['rg'] = this.rg;
-    data['cpf'] = this.cpf;
+    data['CPF'] = this.CPF;
+    data['RG'] = this.RG;
+    data['spouse'] = this.spouse;
+    data['origination'] = this.origination;
     data['address'] = this.address;
     data['addressNumber'] = this.addressNumber;
-    data['spouse'] = this.spouse;
-    data['dateBaptism'] = this.dateBaptism;
-    data['churchCityBaptism'] = this.churchCityBaptism;
-    data['churchName'] = this.churchName;
-    data['dateChurchBaptism'] = this.dateChurchBaptism;
-    data['cityBirth'] = this.cityBirth;
-    data['streetAvenue'] = this.streetAvenue;
-    data['number'] = this.number;
     data['district'] = this.district;
     data['city'] = this.city;
-    data['cityBaptism'] = this.cityBaptism;
-    data['origination'] = this.origination;
     data['note'] = this.note;
     return data;
   }
 }
+
 
 
 /*class Member {

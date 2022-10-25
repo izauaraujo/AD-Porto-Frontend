@@ -35,6 +35,8 @@ dependencies:
   data_table_2: ^2.0.3
   brasil_fields: ^1.6.0
   http: ^0.13.5
+  firebase_core: ^2.1.0
+  dio: ^4.0.6
 
 
 dev_dependencies:

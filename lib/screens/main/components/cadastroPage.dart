@@ -306,23 +306,23 @@ class _PageCadastroState extends State<PageCadastro> {
 
   saveMember() {
     final member = new Member();
-    member.churchName = _congregationNamecontroller.text;
-    member.name = _memberNamecontroller.text;
-    member.father = _fatherMemberNamecontroller.text;
-    member.mother = _motherMemberNamecontroller.text;
-    member.rg = _RGcontroller.text;
-    member.cpf = _CPFcontroller.text;
-    member.birthday = _datebirthcontroller.text;
+    member.congregationName = _congregationNamecontroller.text;
+    member.memberName = _memberNamecontroller.text;
+    member.fatherName = _fatherMemberNamecontroller.text;
+    member.motherName = _motherMemberNamecontroller.text;
+    member.RG = _RGcontroller.text;
+    member.CPF = _CPFcontroller.text;
+    member.dateBirth = _datebirthcontroller.text;
     member.nationatily = _nationalitycontroller.text;
-    member.stateBirth = _stateBirthcontroller.text;
+    member.districtBirth = _stateBirthcontroller.text;
     member.cityBirth = _cityBirthcontroller.text;
-    member.streetAvenue = _streetAvenuecontroller.text;
-    member.number = _numbercontroller.text;
+    member.address = _streetAvenuecontroller.text;
+    member.addressNumber = _numbercontroller.text;
     member.district = _districtcontroller.text;
     member.city = _citycontroller.text;
     member.maritalStatus = _maritalStatuscontroller.text;
     member.spouse = _spousecontroller.text;
-    member.churchCityBaptism = _churchBaptismcontroller.text;
+    member.cityBaptism = _churchBaptismcontroller.text;
     member.cityBaptism = _cityBaptismcontroller.text;
     member.dateBaptism = _dateBaptismcontroller.text;
     member.origination = _originationcontroller.text;

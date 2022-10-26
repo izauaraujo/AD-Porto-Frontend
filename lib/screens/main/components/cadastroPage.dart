@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../../controllers/repository/repositoryMember.dart';
 import '../../../models/Member.dart';
@@ -264,6 +266,24 @@ class _PageCadastroState extends State<PageCadastro> {
               children: [
                 Container(
                   width: 110,
+                  height: 40,
+                  decoration:
+                      BoxDecoration(borderRadius: BorderRadius.circular(5)),
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: Colors.green, onPrimary: Colors.black),
+                      onPressed: () {
+                        setState(() {
+                          pickImage();
+                        });
+                      },
+                      child: const Text(
+                        "Carregar Foto",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      )),
+                ),
+                Container(
+                  width: 110,
                   height: 30,
                   decoration:
                       BoxDecoration(borderRadius: BorderRadius.circular(5)),
@@ -335,6 +355,20 @@ class _PageCadastroState extends State<PageCadastro> {
     jsonMember = jsonEncode(member);
     RepositoryMember.postMember();
   }
+
+  //savePhoto() {
+  // File? image;
+  Future pickImage() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+      final imageTemp = File(image.path);
+//setState(() => this.image = imageTemp);
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
+    }
+  }
+  //}
 
   sair() {
     Navigator.pop(context);

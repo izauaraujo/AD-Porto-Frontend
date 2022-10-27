@@ -1,6 +1,8 @@
 import 'package:admin/controllers/MenuController.dart';
+import 'package:admin/controllers/repository/repositoryMember.dart';
 import 'package:admin/screens/main/main_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatefulWidget {
@@ -73,6 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 ElevatedButton(
                   onPressed: () {
+                    RepositoryMember.getMember();
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => MainScreen()));
                   },

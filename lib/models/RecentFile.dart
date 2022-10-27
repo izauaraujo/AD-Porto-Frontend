@@ -1,3 +1,5 @@
+import '../../../controllers/repository/repositoryMember.dart';
+
 class RecentFile {
   final String? icon, title, date, size;
 
@@ -44,6 +46,18 @@ List demoRecentFiles = [
   RecentFile(
     icon: "assets/icons/excle_file.svg",
     title: "Excel File",
+    date: "25-02-2021",
+    size: "34.5mb",
+  ),
+  RecentFile(
+    icon: "assets/icons/excle_file.svg",
+    title: "Izau1",
+    date: "25-02-2021",
+    size: "34.5mb",
+  ),
+  RecentFile(
+    icon: "assets/icons/excle_file.svg",
+    title: "Izau2",
     date: "25-02-2021",
     size: "34.5mb",
   ),

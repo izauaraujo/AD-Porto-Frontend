@@ -8,7 +8,7 @@ import '../../screens/main/components/cadastroPage.dart';
 
 const AD_PORTO = "https://ad-porto.herokuapp.com";
 const CREATE_MEMBER = "/createMember/";
-const READ_MEMBER = "/readMember/{nameCongregation}";
+const READ_MEMBER = "/readMember/Anesia";
 
 class RepositoryMember {
   static Future<Member> postMember() async {
@@ -32,15 +32,19 @@ class RepositoryMember {
   }
 
   static Future<Member> getMember() async {
+    final dio = Dio();
     var url = AD_PORTO + READ_MEMBER;
-    final response = await http.get(
-      Uri.parse(url),
-      headers: {"Authorization": "Bearer  token"}, //$
-    );
-
+    final response = await dio.get(url,
+        options: Options(headers: {
+          "Authorization":
+              "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NjY5MDEyOTYsImV4cCI6MTY2NjkwNDg5NiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9NQU5BR0VSUyJdfQ.hzK4JhGAm-FjX06-ufSYA-utt8I4J3AdSVkq4PcQuQ8szXTA9VvOPbHDTEl6L3EwhVXHs4F-jTmVBr1Dq_QJpg"
+        }) //$
+        );
     if (response.statusCode == 200) {
       // se o servidor retornar um response OK, vamos fazer o parse no JSON
-      return Member.fromJson(json.decode(response.body));
+      var listMember = jsonDecode(response.data) as List;
+      print(listMember);
+      return throw Exception('List of member $listMember');
     } else {
       // se a responsta não for OK , lançamos um erro
       throw Exception('Failed in READ MEMBER');

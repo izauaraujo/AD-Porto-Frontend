@@ -1,9 +1,11 @@
 import 'dart:convert';
-import 'package:admin/models/Member.dart';
+
 import 'package:dio/dio.dart';
+import 'package:flutter/cupertino.dart';
 
 import 'package:http/http.dart' as http;
 
+import '../../models/Member.dart';
 import '../../screens/main/components/cadastroPage.dart';
 
 const AD_PORTO = "https://ad-porto.herokuapp.com";
@@ -31,20 +33,27 @@ class RepositoryMember {
     }
   }
 
-  static Future<Member> getMember() async {
+  static Future<List<Member>> getMember() async {
     final dio = Dio();
     var url = AD_PORTO + READ_MEMBER;
     final response = await dio.get(url,
         options: Options(headers: {
           "Authorization":
-              "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NjY5MDEyOTYsImV4cCI6MTY2NjkwNDg5NiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9NQU5BR0VSUyJdfQ.hzK4JhGAm-FjX06-ufSYA-utt8I4J3AdSVkq4PcQuQ8szXTA9VvOPbHDTEl6L3EwhVXHs4F-jTmVBr1Dq_QJpg"
+              "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NjY5ODc2MzAsImV4cCI6MTY2Njk5MTIzMCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9NQU5BR0VSUyJdfQ.gLqbbGqr5gweVgSvxpwRons5mbkNZ0QsWgLcNByvzm1oTMF73TrQjrt09X8UmjlR6eLubCPix5QaDluDY1sxhw"
         }) //$
         );
+    print(response);
+
     if (response.statusCode == 200) {
       // se o servidor retornar um response OK, vamos fazer o parse no JSON
-      var listMember = jsonDecode(response.data) as List;
+
+      var listMember = (response.data as List).map((e) {
+        return new Member.fromJson(e);
+      }).toList();
+
       print(listMember);
-      return throw Exception('List of member $listMember');
+
+      return listMember;
     } else {
       // se a responsta não for OK , lançamos um erro
       throw Exception('Failed in READ MEMBER');
@@ -78,3 +87,8 @@ class RepositoryMember {
     "city": "",
     "note": ""
 }*/
+// Future  getUser ({string id obrigatória}) async { //Execute a solicitação GET para o endpoint"/users/" 
+// Resposta userData=await _dio.get (_baseUrl +'/users/$ id'); //Imprime os dados brutos retornados pelo servidor 
+ //print ('Informações do usuário: $ {userData.data}'); //Analisando os dados JSON brutos para a classe de usuário 
+// User user=User.fromJson (userData.data); usuário de retorno;
+//}

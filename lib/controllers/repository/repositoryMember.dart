@@ -39,7 +39,7 @@ class RepositoryMember {
     final response = await dio.get(url,
         options: Options(headers: {
           "Authorization":
-              "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NjY5ODc2MzAsImV4cCI6MTY2Njk5MTIzMCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9NQU5BR0VSUyJdfQ.gLqbbGqr5gweVgSvxpwRons5mbkNZ0QsWgLcNByvzm1oTMF73TrQjrt09X8UmjlR6eLubCPix5QaDluDY1sxhw"
+              "Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE2NjczMjI2MDQsImV4cCI6MTY2NzMyNjIwNCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9VU0VSIiwiUk9MRV9NQU5BR0VSUyJdfQ.lVsuv2Fhhm_RyklIzK4btU5nNi7G2TqUp6q-AcBb3m0uA_K170Ki-Tg2SHEWGwyk4ogryAmXhjYpNTlo_M9HTQ"
         }) //$
         );
     print(response);
@@ -51,7 +51,7 @@ class RepositoryMember {
         return new Member.fromJson(e);
       }).toList();
 
-      print(listMember);
+      print(listMember[0].CPF);
 
       return listMember;
     } else {

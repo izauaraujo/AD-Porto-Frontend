@@ -16,7 +16,7 @@ Future<void> main() async {
   runApp(
     MultiProvider(providers: [
       ChangeNotifierProvider(
-        create: (context) => MenuController(),
+        create: (context) => ControllerMenu(),
       ),
     ], child: MyApp()),
   );

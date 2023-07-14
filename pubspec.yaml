@@ -28,19 +28,19 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.3
 
-  google_fonts: ^2.1.0
+  google_fonts: ^5.1.0  
   flutter_svg: ^0.22.0
   fl_chart: ^0.36.1
   provider: ^5.0.0
   data_table_2: ^2.0.3
   brasil_fields: ^1.6.0
-  http: ^0.13.5
-  firebase_core: ^2.1.0
+  http: ^1.1.0
+  firebase_core: ^2.15.0
   dio: ^4.0.6
   image_picker: ^0.8.3
   io: ^1.0.3
   file_picker: ^5.2.2
-  firebase_storage: ^11.0.5
+  firebase_storage: ^11.2.5
   
 
 

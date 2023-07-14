@@ -1,19 +1,19 @@
-import 'dart:convert';
-import 'dart:html';
+//import 'dart:convert';
+//import 'dart:html';
 
 import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:flutter/cupertino.dart';
+//import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 
-import 'package:http/http.dart' as http;
-import 'package:http_parser/http_parser.dart';
+//import 'package:http/http.dart' as http;
+//import 'package:http_parser/http_parser.dart';
 
 import '../../models/Member.dart';
 import '../../screens/main/components/cadastroPage.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
+//import 'package:image_picker/image_picker.dart';
+//import 'dart:io';
 
 const AD_PORTO = "https://ad-porto.herokuapp.com";
 const CREATE_MEMBER = "/createMember/";

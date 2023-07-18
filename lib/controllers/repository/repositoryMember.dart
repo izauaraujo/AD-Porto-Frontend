@@ -1,6 +1,7 @@
 //import 'dart:convert';
 //import 'dart:html';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -20,9 +21,24 @@ const CREATE_MEMBER = "/createMember/";
 const READ_MEMBER = "/readMember/Anesia";
 const SAVE_PHOTO = "/profile/pic";
 
+const COLLECTION_CONGREGATION = "CONGREGACOES";
+const COLLECTION_MEMBER = "MEMBROS";
+
 class RepositoryMember {
-  static Future<Member> postMember() async {
-    final dio = Dio();
+  
+
+  static Future<void> postMember(Map<String, dynamic> member) async {
+    
+           final db = await FirebaseFirestore.instance.collection(COLLECTION_CONGREGATION).doc().set(member);
+           return db; //member['congregationName']  member['memberName']
+        
+            
+        
+    
+    
+    
+    
+    /*final dio = Dio();
     var url = AD_PORTO + CREATE_MEMBER;
     final response = await dio.post(url,
         data: jsonMember,
@@ -38,7 +54,7 @@ class RepositoryMember {
     } else {
       // se a responsta não for OK , lançamos um erro
       throw Exception('failed in CREATE MEMBER  $status');
-    }
+    }*/
   }
 
   static Future<List<Member>> getMember() async {

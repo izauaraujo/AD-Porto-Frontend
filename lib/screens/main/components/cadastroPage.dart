@@ -5,6 +5,8 @@ import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../../../controllers/repository/repositoryMember.dart';
 import '../../../models/Member.dart';
 
@@ -289,7 +291,7 @@ class _PageCadastroState extends State<PageCadastro> {
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           primary: Colors.green, onPrimary: Colors.black),
-                      onPressed: () {
+                      onPressed: () { print('presionado');
                         setState(() {
                           saveMember();
                         });
@@ -309,7 +311,9 @@ class _PageCadastroState extends State<PageCadastro> {
                           primary: Colors.red, onPrimary: Colors.black),
                       onPressed: () {
                         setState(() {
+                          print("pressionado");
                           sair();
+
                         });
                       },
                       child: const Text("Sair",
@@ -323,6 +327,7 @@ class _PageCadastroState extends State<PageCadastro> {
     ));
   }
 
+/*
   saveMember() {
     final member = new Member();
     member.congregationName = _congregationNamecontroller.text;
@@ -352,8 +357,57 @@ class _PageCadastroState extends State<PageCadastro> {
     _fatherMemberNamecontroller.clear();
 
     jsonMember = jsonEncode(member);
-    RepositoryMember.postMember();
-  }
+    RepositoryMember.postMember(member);
+    
+
+  }*/
+
+saveMember(){
+  Map<String, dynamic> member = {'congregationName' : _congregationNamecontroller.text,
+                
+
+
+  'memberName' : _memberNamecontroller.text,
+  'fatherName' : _fatherMemberNamecontroller.text,
+  'motherName' : _motherMemberNamecontroller.text,
+  'RG': _RGcontroller.text,
+  'CPF' : _CPFcontroller.text,
+  'dateBirth' : _datebirthcontroller.text,
+  'nationatily' : _nationalitycontroller.text,
+  'districtBirth': _stateBirthcontroller.text,
+  'cityBirth' : _cityBirthcontroller.text,
+  'address' : _streetAvenuecontroller.text,
+  'addressNumber' : _numbercontroller.text,
+  'district' : _districtcontroller.text,
+  'city' : _citycontroller.text,
+  'maritalStatus' : _maritalStatuscontroller.text,
+  'spouse' : _spousecontroller.text,
+  'cityBaptism ': _churchBaptismcontroller.text,
+  'cityBaptism' : _cityBaptismcontroller.text,
+  'dateBaptism': _dateBaptismcontroller.text,
+  'origination' : _originationcontroller.text,
+  'admissionDate' : _admissionDatecontroller.text,
+  'note' : _notecontroller.text,
+        
+  };
+
+RepositoryMember.postMember(member);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*
   Future pickImage() async {

@@ -35,12 +35,14 @@ dependencies:
   data_table_2: ^2.0.3
   brasil_fields: ^1.6.0
   http: ^1.1.0
-  firebase_core: ^2.15.0
   dio: ^4.0.6
   image_picker: ^0.8.3
   io: ^1.0.3
   file_picker: ^5.2.2
   firebase_storage: ^11.2.5
+  cloud_firestore: ^4.8.3
+  firebase_core: ^2.15.0
+  firebase_analytics: ^10.4.4
   
 
 

@@ -75,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    RepositoryMember.getMember();
+                    //RepositoryMember.getMember();
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => MainScreen()));
                   },

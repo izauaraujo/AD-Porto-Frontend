@@ -1,16 +1,9 @@
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:brasil_fields/brasil_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 import '../../../controllers/repository/repositoryMember.dart';
-import '../../../models/Member.dart';
 
-String? jsonMember;
+//String? jsonMember;
 
 class PageCadastro extends StatefulWidget {
   const PageCadastro({Key? key}) : super(key: key);
@@ -291,7 +284,8 @@ class _PageCadastroState extends State<PageCadastro> {
                   child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           primary: Colors.green, onPrimary: Colors.black),
-                      onPressed: () { print('presionado');
+                      onPressed: () {
+                        print('presionado');
                         setState(() {
                           saveMember();
                         });
@@ -312,8 +306,8 @@ class _PageCadastroState extends State<PageCadastro> {
                       onPressed: () {
                         setState(() {
                           print("pressionado");
+                          takeMember();
                           sair();
-
                         });
                       },
                       child: const Text("Sair",
@@ -325,6 +319,45 @@ class _PageCadastroState extends State<PageCadastro> {
         ],
       ),
     ));
+  }
+
+  saveMember() {
+    Map<String, dynamic> member = {
+      'congregationName': _congregationNamecontroller.text,
+      'memberName': _memberNamecontroller.text,
+      'fatherName': _fatherMemberNamecontroller.text,
+      'motherName': _motherMemberNamecontroller.text,
+      'RG': _RGcontroller.text,
+      'CPF': _CPFcontroller.text,
+      'dateBirth': _datebirthcontroller.text,
+      'nationatily': _nationalitycontroller.text,
+      'districtBirth': _stateBirthcontroller.text,
+      'cityBirth': _cityBirthcontroller.text,
+      'address': _streetAvenuecontroller.text,
+      'addressNumber': _numbercontroller.text,
+      'district': _districtcontroller.text,
+      'city': _citycontroller.text,
+      'maritalStatus': _maritalStatuscontroller.text,
+      'spouse': _spousecontroller.text,
+      'cityBaptism ': _churchBaptismcontroller.text,
+      'cityBaptism': _cityBaptismcontroller.text,
+      'dateBaptism': _dateBaptismcontroller.text,
+      'origination': _originationcontroller.text,
+      'admissionDate': _admissionDatecontroller.text,
+      'note': _notecontroller.text,
+    };
+
+    RepositoryMember.postMember(member);
+  }
+
+  takeMember() {
+    var congregationName = 'Bandeirantes';
+    var memberName = 'Izau';
+    RepositoryMember.getMember(congregationName, memberName);
+  }
+
+  sair() {
+    Navigator.pop(context);
   }
 
 /*
@@ -361,67 +394,4 @@ class _PageCadastroState extends State<PageCadastro> {
     
 
   }*/
-
-saveMember(){
-  Map<String, dynamic> member = {'congregationName' : _congregationNamecontroller.text,
-                
-
-
-  'memberName' : _memberNamecontroller.text,
-  'fatherName' : _fatherMemberNamecontroller.text,
-  'motherName' : _motherMemberNamecontroller.text,
-  'RG': _RGcontroller.text,
-  'CPF' : _CPFcontroller.text,
-  'dateBirth' : _datebirthcontroller.text,
-  'nationatily' : _nationalitycontroller.text,
-  'districtBirth': _stateBirthcontroller.text,
-  'cityBirth' : _cityBirthcontroller.text,
-  'address' : _streetAvenuecontroller.text,
-  'addressNumber' : _numbercontroller.text,
-  'district' : _districtcontroller.text,
-  'city' : _citycontroller.text,
-  'maritalStatus' : _maritalStatuscontroller.text,
-  'spouse' : _spousecontroller.text,
-  'cityBaptism ': _churchBaptismcontroller.text,
-  'cityBaptism' : _cityBaptismcontroller.text,
-  'dateBaptism': _dateBaptismcontroller.text,
-  'origination' : _originationcontroller.text,
-  'admissionDate' : _admissionDatecontroller.text,
-  'note' : _notecontroller.text,
-        
-  };
-
-RepositoryMember.postMember(member);
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-  Future pickImage() async {
-    try {
-      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
-      if (image == null) return;
-      final imageTemp = File(image.path);
-//setState(() => this.image = imageTemp);
-    } on PlatformException catch (e) {
-      print('Failed to pick image: $e');
-    }
-  }*/
-
-  sair() {
-    Navigator.pop(context);
-  }
 }

@@ -29,14 +29,9 @@ class RepositoryMember {
 
   static Future<void> postMember(Map<String, dynamic> member) async {
     
-           final db = await FirebaseFirestore.instance.collection(COLLECTION_CONGREGATION).doc().set(member);
-           return db; //member['congregationName']  member['memberName']
-        
-            
-        
-    
-    
-    
+           await FirebaseFirestore.instance.collection(COLLECTION_CONGREGATION).doc(member['congregationName']).
+           collection(COLLECTION_MEMBER).doc(member['memberName']).set(member);
+             
     
     /*final dio = Dio();
     var url = AD_PORTO + CREATE_MEMBER;

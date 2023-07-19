@@ -53,11 +53,12 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBbzsyjPOIzel7l9XJtrmPV7fUslYFhw2o',
-    appId: '1:34481586725:web:a5fc11b2bdb747b52d75cc',
-    messagingSenderId: '34481586725',
-    projectId: 'ad-porto-74a1a',
-    authDomain: 'ad-porto-74a1a.firebaseapp.com',
-    storageBucket: 'ad-porto-74a1a.appspot.com',
+    apiKey: "AIzaSyD-Z8eLkAuVoBWbeC3GQRDVs4Ou45A6IMg",
+    authDomain: "adporto2.firebaseapp.com",
+    projectId: "adporto2",
+    storageBucket: "adporto2.appspot.com",
+    messagingSenderId: "27694122286",
+    appId: "1:27694122286:web:48e474739a3a93562726bf",
+    measurementId: "G-DDH5PLJ265"
   );
 }
